@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - AlgoLearn</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/quiz.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AlgoLearn</h1>
+      <nav>
+        <a href="/">← Back to Library</a>
+        <a href="/dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="quiz-container">
+      <div class="quiz-header">
+        <h2 id="quiz-title">Quiz: <span id="algorithm-name">Loading...</span></h2>
+        <p>Test your understanding of the algorithm</p>
+      </div>
+
+      <div id="quiz-content" class="quiz-content">
+        <!-- SHRIYA: Quiz questions will be dynamically loaded here -->
+        <!-- Each question should have:
+             - Question text
+             - 4 multiple choice options (radio buttons)
+             - Submit button
+             - Feedback section (correct/incorrect) -->
+      </div>
+
+      <div id="quiz-results" class="quiz-results" style="display: none;">
+        <!-- SHRIYA: Show final score, correct/incorrect breakdown -->
+        <h3>Quiz Complete! 🎉</h3>
+        <div class="score-display">
+          <p>Your Score: <span id="final-score">0</span> / <span id="total-questions">5</span></p>
+        </div>
+        <div class="results-breakdown" id="results-breakdown">
+          <!-- Show each question with correct/incorrect status -->
+        </div>
+        <button id="back-to-dashboard-btn" class="btn-primary btn-large">
+          View Dashboard
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/quiz.js"></script>
+</body>
+</html>
+
+<!-- 
+SHRIYA TODO:
+1. Create quiz.css with proper styling
+2. Implement quiz.js with:
+   - Load quiz questions based on algorithm ID
+   - Display questions one at a time or all at once
+   - Handle answer selection
+   - Provide immediate feedback
+   - Calculate final score
+   - Save results using API.saveQuizResult()
+   - Redirect to dashboard
+   
+Quiz Question Structure:
+{
+  question: "What is the average time complexity?",
+  options: ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
+  correctAnswer: 2 // index
+}
+-->

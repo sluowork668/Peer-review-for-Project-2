@@ -1,0 +1,343 @@
+/* public/css/main.css - VS Code Dark Theme with Pink Accents */
+
+:root {
+  /* Dark Gray/Black Backgrounds - VS Code Style */
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #252526;
+  --bg-tertiary: #2d2d30;
+  --bg-elevated: #3e3e42;
+  
+  /* Pink/Magenta Color Scheme */
+  --pink-primary: #ff79c6;
+  --pink-dark: #ff5ac1;
+  --pink-light: #ff9ed8;
+  --pink-glow: rgba(255, 121, 198, 0.2);
+  
+  /* Purple Accents */
+  --purple: #bd93f9;
+  --purple-light: #d4bbff;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-muted: #858585;
+  
+  /* Status Colors */
+  --success: #50fa7b;
+  --warning: #ffb86c;
+  --danger: #ff5555;
+  
+  /* UI Elements */
+  --border: #3e3e42;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  background-color: var(--bg-primary);
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Header - Pink Gradient */
+header {
+  background: linear-gradient(135deg, var(--pink-primary), var(--purple));
+  padding: 28px 32px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(255, 121, 198, 0.3);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 121, 198, 0.4);
+}
+
+/* Headings - Big Pink Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--pink-primary);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+/* Buttons - Pink Theme */
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--pink-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 121, 198, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--pink-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 121, 198, 0.5);
+}
+
+.btn-primary:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-elevated);
+  border-color: var(--pink-primary);
+  color: var(--pink-primary);
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Cards - Dark with Pink Accents */
+.card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Badges - Pink Theme */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.badge-easy {
+  background: rgba(80, 250, 123, 0.15);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.badge-medium {
+  background: rgba(255, 184, 108, 0.15);
+  color: var(--warning);
+  border-color: var(--warning);
+}
+
+.badge-hard {
+  background: rgba(255, 85, 85, 0.15);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+/* Form Elements - Dark with Pink Focus */
+input[type="text"],
+input[type="number"],
+select {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--pink-primary);
+  box-shadow: 0 0 0 3px var(--pink-glow);
+}
+
+/* Scrollbar - VS Code Style */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 6px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-primary);
+}
+
+/* Typography */
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+strong {
+  color: var(--pink-primary);
+  font-weight: 600;
+}
+
+/* Links - Pink */
+a {
+  color: var(--pink-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--pink-light);
+  text-decoration: underline;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-pink {
+  color: var(--pink-primary);
+}
+
+.text-purple {
+  color: var(--purple);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  color: var(--pink-primary);
+  font-size: 16px;
+}
+
+.loading::after {
+  content: "Loading...";
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Messages */
+.error {
+  background: rgba(255, 85, 85, 0.1);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid var(--danger);
+}
+
+.success {
+  background: rgba(80, 250, 123, 0.1);
+  border: 1px solid var(--success);
+  color: var(--success);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid var(--success);
+}
+
+/* Focus States for Accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--pink-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth Transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}

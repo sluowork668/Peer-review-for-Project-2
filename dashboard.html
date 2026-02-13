@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - AlgoLearn</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 AlgoLearn</h1>
+      <nav>
+        <a href="/">← Back to Library</a>
+        <a href="/leaderboard.html">🏆 Leaderboard</a>
+      </nav>
+    </header>
+
+    <main class="dashboard-layout">
+      <!-- Overall Stats -->
+      <section class="stats-overview">
+        <h2>Your Progress</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-icon">✅</span>
+            <h3 id="completed-count">0</h3>
+            <p>Algorithms Completed</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">📝</span>
+            <h3 id="average-score">0%</h3>
+            <p>Average Quiz Score</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">⏱️</span>
+            <h3 id="total-time">0 min</h3>
+            <p>Total Time Spent</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">🔥</span>
+            <h3 id="current-streak">0 days</h3>
+            <p>Current Streak</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Algorithm Progress Cards -->
+      <section class="progress-cards">
+        <h3>Algorithm Progress</h3>
+        <div id="algorithm-progress" class="cards-container">
+          <!-- SHRIYA: Load progress cards for each algorithm -->
+          <!-- Each card should show:
+               - Algorithm name
+               - Completed status (✓ or ✗)
+               - Quiz score (e.g., 4/5)
+               - Time spent
+               - Times watched
+               - Button to re-watch or take quiz again
+          -->
+        </div>
+      </section>
+
+      <!-- Achievements -->
+      <section class="achievements-section">
+        <h3>Achievements 🏆</h3>
+        <div id="achievements-grid" class="achievements-grid">
+          <!-- SHRIYA: Display unlocked achievements with badges -->
+          <!-- Locked achievements should appear grayed out -->
+        </div>
+      </section>
+
+      <!-- Streak Calendar -->
+      <section class="streak-section">
+        <h3>Learning Streak 🔥</h3>
+        <div id="streak-calendar" class="streak-calendar">
+          <!-- SHRIYA: Display calendar view with active days highlighted -->
+        </div>
+        <p id="streak-message" class="streak-message"></p>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>
+
+<!-- 
+SHRIYA TODO:
+1. Create dashboard.css with cards, grids, and progress bars
+2. Implement dashboard.js with:
+   - Load user progress using API.getProgress()
+   - Load quiz results using API.getQuizResults()
+   - Load achievements using API.getAchievements()
+   - Calculate overall statistics
+   - Display algorithm progress cards
+   - Show achievements (locked/unlocked)
+   - Render streak calendar
+   - Check for new achievements and show notifications
+
+Achievement Checking Logic:
+- Sorting Master: Check if all 4 algorithms completed
+- Perfect Score: Check if any quiz has score === 5
+- Speed Learner: Check if 3+ algorithms completed today
+- Week Warrior: Check if streak >= 7 days
+-->

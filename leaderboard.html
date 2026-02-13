@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard - AlgoLearn</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 AlgoLearn</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="leaderboard-container">
+      <div class="leaderboard-header">
+        <h2>🏆 Leaderboard</h2>
+        <p>Top learners on AlgoLearn</p>
+      </div>
+
+      <div class="leaderboard-filters">
+        <label>Sort by:</label>
+        <select id="sort-by">
+          <option value="algorithmsCompleted">Algorithms Completed</option>
+          <option value="averageScore">Average Score</option>
+          <option value="totalTimeSpent">Total Time</option>
+        </select>
+      </div>
+
+      <div class="leaderboard-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>User</th>
+              <th>Algorithms</th>
+              <th>Avg Score</th>
+              <th>Time Spent</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- SHRIYA: Populate with leaderboard data -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="user-rank" class="user-rank-card">
+        <!-- SHRIYA: Highlight current user's rank -->
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/leaderboard.js"></script>
+</body>
+</html>
+
+<!-- 
+SHRIYA TODO:
+1. Implement leaderboard.js with:
+   - Load leaderboard data using API.getLeaderboard()
+   - Display top 10 users in table format
+   - Handle sort filter changes
+   - Highlight current user's row
+   - Show user's rank even if not in top 10
+
+Leaderboard Data Structure:
+{
+  rank: 1,
+  userId: "user123",
+  algorithmsCompleted: 4,
+  averageScore: 4.5,
+  totalTimeSpent: 1200 // seconds
+}
+-->
