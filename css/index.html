@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoLearn - Master Algorithms Visually</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎓 AlgoLearn</h1>
+            <p class="tagline">Master algorithms through visual learning</p>
+            <nav>
+                <a href="index.html" class="active">Algorithms</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="leaderboard.html">Leaderboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Learn Sorting Algorithms Interactively</h2>
+            <p>Watch, step through, and master classic algorithms with real-time visualizations</p>
+        </section>
+
+        <section class="algorithm-grid" id="algorithmGrid">
+            <div class="loading">Loading algorithms...</div>
+        </section>
+    </main>
+
+    <script type="module">
+        const API_BASE = 'http://localhost:3000/api';
+
+        async function fetchAlgorithms() {
+            try {
+                const response = await fetch(`${API_BASE}/algorithms`);
+                if (!response.ok) throw new Error('Failed to fetch');
+                return await response.json();
+            } catch (error) {
+                console.error(error);
+                throw error;
+            }
+        }
+
+        async function loadAlgorithms() {
+            const grid = document.getElementById('algorithmGrid');
+            try {
+                const algorithms = await fetchAlgorithms();
+                grid.innerHTML = algorithms.map(algo => `
+                    <div class="algorithm-card">
+                        <div class="difficulty-badge ${algo.difficulty}">${algo.difficulty}</div>
+                        <h3>${algo.name}</h3>
+                        <p class="description">${algo.description}</p>
+                        <div class="complexity-info">
+                            <span>⏱️ ${algo.timeComplexity.average}</span>
+                        </div>
+                        <a href="visualizer.html?id=${algo._id}" class="btn-primary">
+                            Visualize →
+                        </a>
+                    </div>
+                `).join('');
+            } catch (error) {
+                grid.innerHTML = '<div class="error">Failed to load algorithms</div>';
+            }
+        }
+
+        loadAlgorithms();
+    </script>
+</body>
+</html>

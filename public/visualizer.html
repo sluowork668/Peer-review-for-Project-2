@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer - AlgoLearn</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/visualizer.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-btn">← Back</a>
+            <h1 id="algorithmTitle">Loading... ✨</h1>
+        </div>
+    </header>
+
+    <main class="visualizer-container">
+        <div class="left-panel">
+            <div class="canvas-wrapper">
+                <canvas id="visualizerCanvas" width="800" height="400"></canvas>
+            </div>
+
+            <div class="controls-panel">
+                <button id="playBtn" class="control-btn">▶ Play</button>
+                <button id="pauseBtn" class="control-btn" disabled>⏸ Pause</button>
+                <button id="stepBackBtn" class="control-btn">⏮ Step Back</button>
+                <button id="stepForwardBtn" class="control-btn">⏭ Step Forward</button>
+                <button id="resetBtn" class="control-btn">🔄 Reset</button>
+
+                <div class="speed-control">
+                    <label>Speed:</label>
+                    <input type="range" id="speedSlider" min="1" max="4" value="2">
+                    <span id="speedLabel">1x</span>
+                </div>
+            </div>
+
+            <div class="array-options">
+                <h3>Generate Array:</h3>
+                <div class="option-buttons">
+                    <button id="randomArrayBtn" class="option-btn">Random</button>
+                    <button id="reversedArrayBtn" class="option-btn">Reversed</button>
+                    <button id="nearlySortedBtn" class="option-btn">Nearly Sorted</button>
+                </div>
+                <div class="size-control">
+                    <label>Size:</label>
+                    <input type="range" id="sizeSlider" min="10" max="50" value="20">
+                    <span id="sizeLabel">20</span>
+                </div>
+            </div>
+
+            <div class="metrics-panel">
+                <div class="metric">
+                    <span class="metric-label">Comparisons:</span>
+                    <span id="comparisons" class="metric-value">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Swaps:</span>
+                    <span id="swaps" class="metric-value">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Time:</span>
+                    <span id="timeElapsed" class="metric-value">0ms</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Step:</span>
+                    <span id="currentStep" class="metric-value">0 / 0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="pseudocode-panel">
+                <h3>Pseudocode 💕</h3>
+                <pre id="pseudocodeDisplay"><code>Loading...</code></pre>
+            </div>
+
+            <div class="complexity-panel">
+                <h3>Complexity ✨</h3>
+                <div id="complexityInfo">
+                    <p><strong>Time:</strong></p>
+                    <ul id="timeComplexityList"></ul>
+                    <p><strong>Space:</strong> <span id="spaceComplexity">-</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/visualizer.js"></script>
+</body>
+</html>
