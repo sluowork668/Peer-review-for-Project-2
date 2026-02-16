@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 let db;
 let client;
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/algolearn';
+const MONGODB_URI = process.env.MONGODB_URI //|| 'mongodb://127.0.0.1:27017/algolearn';
 
 async function connectDB() {
     try {

@@ -69,6 +69,11 @@ export class PlaybackControls {
     animate() {
         if (!this.isPlaying || this.currentStepIndex >= this.steps.length - 1) {
             this.pause();
+
+            if (this.currentStepIndex >= this.steps.length - 1) {
+                this.onAnimationComplete();
+            }
+
             return;
         }
         
@@ -164,4 +169,41 @@ export class PlaybackControls {
         this.stepForwardBtn.disabled = isAtEnd || this.isPlaying;
         this.resetBtn.disabled = isAtStart && !this.isPlaying;
     }
+
+    //by @shriyays
+    onAnimationComplete() {
+    let quizBtn = document.getElementById('take-quiz-btn');
+    
+    if (!quizBtn) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const algorithmId = urlParams.get('id');
+        
+        const algorithmName = document.getElementById('algorithmTitle')?.textContent || 
+                            urlParams.get('name') || 
+                            'Algorithm';
+        
+        quizBtn = document.createElement('button');
+        quizBtn.id = 'take-quiz-btn';
+        quizBtn.className = 'btn-primary btn-large';
+        quizBtn.textContent = '📝 Take Quiz Now';
+        quizBtn.style.marginTop = '24px';
+        quizBtn.onclick = () => {
+            window.location.href = `/quiz.html?id=${algorithmId}&name=${encodeURIComponent(algorithmName)}`;
+        };
+        
+        const controlsDiv = document.querySelector('.controls') || 
+                           document.querySelector('.left-panel') ||
+                           document.querySelector('.data-controls');
+        
+        if (controlsDiv) {
+            controlsDiv.parentElement.appendChild(quizBtn);
+        } else {
+            document.body.appendChild(quizBtn);
+        }
+        
+        console.log('✅ Quiz button added for:', algorithmName);
+    }
+    
+    quizBtn.style.display = 'block';
+}
 }

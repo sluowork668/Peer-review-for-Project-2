@@ -1,4 +1,4 @@
-/* public/css/dashboard.css - VS Code Pink Theme Dashboard */
+/* Author @SHRIYA */
 
 /* Dashboard Layout */
 .dashboard-layout {
@@ -408,12 +408,31 @@
 .leaderboard-filters label {
   font-weight: 600;
   color: var(--pink-primary);
+  font-size: 1rem;
 }
 
 .leaderboard-filters select {
   padding: 10px 16px;
   font-size: 14px;
   min-width: 200px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.leaderboard-filters select:hover {
+  border-color: var(--pink-primary);
+  background: var(--bg-elevated);
+}
+
+.leaderboard-filters select:focus {
+  outline: none;
+  border-color: var(--pink-primary);
+  box-shadow: 0 0 0 3px var(--pink-glow);
 }
 
 .leaderboard-table {
