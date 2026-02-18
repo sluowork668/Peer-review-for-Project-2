@@ -33,9 +33,9 @@ export class PlaybackControls {
         this.resetBtn.addEventListener('click', () => this.reset());
         
         this.speedSlider.addEventListener('input', (e) => {
-            const speeds = [0.5, 1, 2, 4];
+            const speeds = [0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
             this.speed = speeds[e.target.value - 1];
-            this.speedLabel.textContent = `${this.speed}x`;
+            this.speedLabel.textContent = `${this.speed}`;
         });
     }
     

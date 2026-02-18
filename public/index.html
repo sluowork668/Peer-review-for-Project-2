@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>💖 AlgoLearn</h1>
-            <p class="tagline">Master algorithms through visual learning</p>
-            <nav>
-                <a href="index.html" class="active">Algorithms</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="leaderboard.html">Leaderboard</a>
+
+    <header class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand"> AlgoLearn</a>
+                <nav class="nav-links">
+                <a href="/" class="nav-link active">Algorithms</a>
+                <a href="#" class="nav-link" id="quiz-nav-link">Quiz</a>
+                <a href="/dashboard.html" class="nav-link">Dashboard</a>
+                <a href="/leaderboard.html" class="nav-link">Leaderboard</a>
             </nav>
         </div>
     </header>
@@ -67,6 +68,22 @@
         }
 
         loadAlgorithms();
+    </script>
+
+    <script>
+    document.getElementById('quiz-nav-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        const algo = prompt('Which algorithm quiz?\n1. Bubble Sort\n2. Quick Sort\n3. Merge Sort\n4. Heap Sort');
+        const algoNames = {
+        '1': 'Bubble Sort',
+        '2': 'Quick Sort', 
+        '3': 'Merge Sort',
+        '4': 'Heap Sort'
+        };
+        if (algoNames[algo]) {
+        window.location.href = `/quiz.html?name=${encodeURIComponent(algoNames[algo])}`;
+        }
+    });
     </script>
 </body>
 </html>

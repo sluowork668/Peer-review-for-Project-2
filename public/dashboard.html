@@ -8,15 +8,20 @@
   <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🎯 AlgoLearn</h1>
-      <nav>
-        <a href="/">← Back to Library</a>
-        <a href="/leaderboard.html">🏆 Leaderboard</a>
-      </nav>
+  <header class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand"> AlgoLearn</a>
+                <nav class="nav-links">
+                <a href="/" class="nav-link ">Algorithms</a>
+                <a href="#" class="nav-link" id="quiz-nav-link">Quiz</a>
+                <a href="/dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="/leaderboard.html" class="nav-link">Leaderboard</a>
+            </nav>
+        </div>
     </header>
 
+  <div class="container">
+    
     <main class="dashboard-layout">
       <!-- Overall Stats -->
       <section class="stats-overview">
@@ -84,23 +89,3 @@
   <script type="module" src="/js/dashboard.js"></script>
 </body>
 </html>
-
-<!-- 
-SHRIYA TODO:
-1. Create dashboard.css with cards, grids, and progress bars
-2. Implement dashboard.js with:
-   - Load user progress using API.getProgress()
-   - Load quiz results using API.getQuizResults()
-   - Load achievements using API.getAchievements()
-   - Calculate overall statistics
-   - Display algorithm progress cards
-   - Show achievements (locked/unlocked)
-   - Render streak calendar
-   - Check for new achievements and show notifications
-
-Achievement Checking Logic:
-- Sorting Master: Check if all 4 algorithms completed
-- Perfect Score: Check if any quiz has score === 5
-- Speed Learner: Check if 3+ algorithms completed today
-- Week Warrior: Check if streak >= 7 days
--->

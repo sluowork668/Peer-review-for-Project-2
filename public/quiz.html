@@ -8,14 +8,19 @@
   <link rel="stylesheet" href="/css/quiz.css">
 </head>
 <body>
+  <header class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand"> AlgoLearn</a>
+                <nav class="nav-links">
+                <a href="/" class="nav-link ">Algorithms</a>
+                <a href="#" class="nav-link active" id="quiz-nav-link">Quiz</a>
+                <a href="/dashboard.html" class="nav-link ">Dashboard</a>
+                <a href="/leaderboard.html" class="nav-link">Leaderboard</a>
+            </nav>
+        </div>
+  </header>
+
   <div class="container">
-    <header>
-      <h1>AlgoLearn</h1>
-      <nav>
-        <a href="/">← Back to Library</a>
-        <a href="/dashboard.html">Dashboard</a>
-      </nav>
-    </header>
 
     <main class="quiz-container">
       <div class="quiz-header">
@@ -51,23 +56,3 @@
   <script type="module" src="/js/quiz.js"></script>
 </body>
 </html>
-
-<!-- 
-SHRIYA TODO:
-1. Create quiz.css with proper styling
-2. Implement quiz.js with:
-   - Load quiz questions based on algorithm ID
-   - Display questions one at a time or all at once
-   - Handle answer selection
-   - Provide immediate feedback
-   - Calculate final score
-   - Save results using API.saveQuizResult()
-   - Redirect to dashboard
-   
-Quiz Question Structure:
-{
-  question: "What is the average time complexity?",
-  options: ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
-  correctAnswer: 2 // index
-}
--->

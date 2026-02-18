@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
+
+  <header class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand"> AlgoLearn</a>
+                <nav class="nav-links">
+                <a href="/" class="nav-link ">Algorithms</a>
+                <a href="#" class="nav-link" id="quiz-nav-link">Quiz</a>
+                <a href="/dashboard.html" class="nav-link ">Dashboard</a>
+                <a href="/leaderboard.html" class="nav-link active">Leaderboard</a>
+            </nav>
+        </div>
+  </header>
+
   <div class="container">
-    <header>
-      <h1>🎯 AlgoLearn</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/dashboard.html">Dashboard</a>
-      </nav>
-    </header>
 
     <main class="leaderboard-container">
       <div class="leaderboard-header">
@@ -58,22 +64,3 @@
   <script type="module" src="/js/leaderboard.js"></script>
 </body>
 </html>
-
-<!-- 
-SHRIYA TODO:
-1. Implement leaderboard.js with:
-   - Load leaderboard data using API.getLeaderboard()
-   - Display top 10 users in table format
-   - Handle sort filter changes
-   - Highlight current user's row
-   - Show user's rank even if not in top 10
-
-Leaderboard Data Structure:
-{
-  rank: 1,
-  userId: "user123",
-  algorithmsCompleted: 4,
-  averageScore: 4.5,
-  totalTimeSpent: 1200 // seconds
-}
--->
