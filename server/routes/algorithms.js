@@ -4,7 +4,6 @@ const { getDB } = require('../db');
 
 const router = express.Router();
 
-// Fallback data
 const fallbackData = [
     {
         _id: '000000000000000000000001',
@@ -35,6 +34,19 @@ const fallbackData = [
     quickSort(arr, low, pivot-1)
     quickSort(arr, pivot+1, high)
   }
+}
+
+function partition(arr, low, high) {
+  pivot = arr[high]
+  i = low - 1
+  for (j = low; j < high; j++) {
+    if (arr[j] < pivot) {
+      i++
+      swap(arr[i], arr[j])
+    }
+  }
+  swap(arr[i+1], arr[high])
+  return i + 1
 }`,
         timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n²)" },
         spaceComplexity: "O(log n)",
@@ -51,6 +63,32 @@ const fallbackData = [
     mergeSort(arr, left, mid)
     mergeSort(arr, mid+1, right)
     merge(arr, left, mid, right)
+  }
+}
+
+function merge(arr, left, mid, right) {
+  leftArr = arr[left...mid]
+  rightArr = arr[mid+1...right]
+  i = 0, j = 0, k = left
+  while (i < leftArr.length && j < rightArr.length) {
+    if (leftArr[i] <= rightArr[j]) {
+      arr[k] = leftArr[i]
+      i++
+    } else {
+      arr[k] = rightArr[j]
+      j++
+    }
+    k++
+  }
+  while (i < leftArr.length) {
+    arr[k] = leftArr[i]
+    i++
+    k++
+  }
+  while (j < rightArr.length) {
+    arr[k] = rightArr[j]
+    j++
+    k++
   }
 }`,
         timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
@@ -71,48 +109,54 @@ const fallbackData = [
     swap(arr[0], arr[i])
     heapify(arr, i, 0)
   }
+}
+
+function heapify(arr, n, i) {
+  largest = i
+  left = 2*i + 1
+  right = 2*i + 2
+  if (left < n && arr[left] > arr[largest]) {
+    largest = left
+  }
+  if (right < n && arr[right] > arr[largest]) {
+    largest = right
+  }
+  if (largest != i) {
+    swap(arr[i], arr[largest])
+    heapify(arr, n, largest)
+  }
 }`,
         timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
         spaceComplexity: "O(1)",
-        description: "Uses a binary heap data structure to sort."
+        description: "Uses a binary heap data structure."
     }
 ];
 
-// GET /api/algorithms - Get all algorithms
 router.get('/', async (req, res) => {
     try {
         const db = getDB();
         const algorithms = await db.collection('algorithms').find({}).toArray();
         res.json(algorithms);
     } catch (error) {
-        console.error('❌ Error fetching algorithms:', error.message);
+        console.error('Error:', error.message);
         res.json(fallbackData);
     }
 });
 
-// GET /api/algorithms/:id - Get single algorithm by ID
 router.get('/:id', async (req, res) => {
     try {
         const db = getDB();
         const algorithm = await db.collection('algorithms').findOne({ 
             _id: new ObjectId(req.params.id) 
         });
-        
         if (!algorithm) {
-            return res.status(404).json({ error: 'Algorithm not found' });
+            return res.status(404).json({ error: 'Not found' });
         }
-        
         res.json(algorithm);
     } catch (error) {
-        console.error('❌ Error fetching algorithm by ID:', error.message);
-        
-        // Return fallback data based on ID
+        console.error('Error:', error.message);
         const algo = fallbackData.find(a => a._id === req.params.id);
-        if (algo) {
-            return res.json(algo);
-        }
-        
-        // If ID doesn't match fallback, return first one
+        if (algo) return res.json(algo);
         res.json(fallbackData[0]);
     }
 });

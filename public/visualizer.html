@@ -21,27 +21,27 @@
                 <canvas id="visualizerCanvas" width="800" height="400"></canvas>
             </div>
 
-            <!-- Color Legend -->
             <div class="color-legend">
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #ff79c6;"></div>
-                    <span class="legend-label">Unsorted</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #f59e0b;"></div>
-                    <span class="legend-label">Comparing</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #ef4444;"></div>
-                    <span class="legend-label">Swapping</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #10b981;"></div>
-                    <span class="legend-label">Sorted</span>
-                </div>
-            </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #ff79c6;"></div>
+        <span class="legend-label">Unsorted</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #f59e0b;"></div>
+        <span class="legend-label">Comparing</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #ef4444;"></div>
+        <span class="legend-label">Swapping</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #10b981;"></div>
+        <span class="legend-label">Sorted</span>
+    </div>
+</div>
 
-            <!-- Controls Panel -->
+<div class="controls-panel">
+
             <div class="controls-panel">
                 <button id="playBtn" class="control-btn">▶ Play</button>
                 <button id="pauseBtn" class="control-btn" disabled>⏸ Pause</button>
@@ -50,13 +50,19 @@
                 <button id="resetBtn" class="control-btn">🔄 Reset</button>
 
                 <div class="speed-control">
-                    <label>Speed:</label>
-                    <input type="range" id="speedSlider" min="1" max="4" value="2">
-                    <span id="speedLabel">1x</span>
-                </div>
-            </div>
+    <label>Speed:</label>
+    <div class="speed-slider-wrapper">
+        <input type="range" id="speedSlider" min="1" max="4" value="2" step="1">
+        <div class="speed-marks">
+            <span>0.5x</span>
+            <span>1x</span>
+            <span>2x</span>
+            <span>4x</span>
+        </div>
+    </div>
+    <span id="speedLabel">1x</span>
+</div>
 
-            <!-- Array Options -->
             <div class="array-options">
                 <h3>Generate Array:</h3>
                 <div class="option-buttons">
@@ -71,7 +77,6 @@
                 </div>
             </div>
 
-            <!-- Metrics Panel -->
             <div class="metrics-panel">
                 <div class="metric">
                     <span class="metric-label">Comparisons:</span>
@@ -92,7 +97,6 @@
             </div>
         </div>
 
-        <!-- Right Panel -->
         <div class="right-panel">
             <div class="pseudocode-panel">
                 <h3>Pseudocode 💕</h3>
