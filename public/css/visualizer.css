@@ -125,15 +125,12 @@
 
 .speed-slider-wrapper {
   flex: 1;
-<<<<<<< HEAD
   position: relative;
 }
 
 #speedSlider {
   width: 100%;
-=======
   max-width: 200px; 
->>>>>>> f6c33d32b95780eb5b289748a3c5e227995aeaa5
   cursor: pointer;
   height: 6px;
   -webkit-appearance: none;
@@ -194,16 +191,13 @@
 #speedLabel {
   font-weight: 700;
   color: var(--pink-primary);
-<<<<<<< HEAD
   min-width: 45px;
   text-align: center;
   font-size: 1.1rem;
-=======
   min-width: 35px; 
   text-align: center; 
   flex-shrink: 0;  
   margin-right: 8px;  
->>>>>>> f6c33d32b95780eb5b289748a3c5e227995aeaa5
 }
 
 .array-options {
@@ -356,6 +350,20 @@
   color: var(--text-muted);
 }
 
+.pseudocode-panel code .code-line {
+  display: block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.pseudocode-panel code .code-line.highlight {
+  background: rgba(255, 121, 198, 0.3);
+  border-left: 3px solid var(--pink-primary);
+  padding-left: 12px;
+  font-weight: 600;
+}
+
 .complexity-panel ul {
   list-style: none;
   padding: 0;
@@ -396,5 +404,22 @@
   .visualizer-container {
     grid-template-columns: 1fr;
   }
+
  
+}
+
+/* Pseudocode Line Highlighting */
+.pseudocode-panel code .code-line {
+  display: block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.pseudocode-panel code .code-line.highlight {
+  background: rgba(255, 121, 198, 0.3);
+  border-left: 3px solid var(--pink-primary);
+  padding-left: 12px;
+  font-weight: 700;
+  color: var(--pink-light);
 }

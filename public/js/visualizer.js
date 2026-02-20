@@ -49,7 +49,30 @@ class VisualizerApp {
     
     displayPseudocode() {
         const pseudocodeDisplay = document.getElementById('pseudocodeDisplay');
-        pseudocodeDisplay.innerHTML = `<code>${this.escapeHtml(this.algorithm.pseudocode)}</code>`;
+        
+        // Split pseudocode into lines and wrap each in a span
+        const lines = this.algorithm.pseudocode.split('\n');
+        const numberedLines = lines.map((line, index) => {
+            return `<span class="code-line" data-line="${index}">${this.escapeHtml(line)}</span>`;
+        }).join('\n');
+        
+        pseudocodeDisplay.innerHTML = `<code>${numberedLines}</code>`;
+    }
+
+    highlightPseudocodeLine(lineNumber) {
+        // Remove previous highlights
+        document.querySelectorAll('.code-line').forEach(line => {
+            line.classList.remove('highlight');
+        });
+        
+        // Highlight current line
+        if (lineNumber >= 0) {
+            const line = document.querySelector(`.code-line[data-line="${lineNumber}"]`);
+            if (line) {
+                line.classList.add('highlight');
+                line.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
     }
     
     displayComplexity() {
@@ -125,5 +148,5 @@ class VisualizerApp {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new VisualizerApp();
+    window.visualizerApp = new VisualizerApp();  // Make it global so controls.js can access it
 });
