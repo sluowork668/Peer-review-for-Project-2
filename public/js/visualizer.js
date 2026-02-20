@@ -89,17 +89,25 @@ class VisualizerApp {
     }
     
     setupArrayControls() {
-        document.getElementById('randomArrayBtn').addEventListener('click', () => this.generateRandomArray());
-        document.getElementById('reversedArrayBtn').addEventListener('click', () => this.generateReversedArray());
-        document.getElementById('nearlySortedBtn').addEventListener('click', () => this.generateNearlySortedArray());
-        
-        const sizeSlider = document.getElementById('sizeSlider');
-        const sizeLabel = document.getElementById('sizeLabel');
-        sizeSlider.addEventListener('input', (e) => {
-            this.arraySize = parseInt(e.target.value);
-            sizeLabel.textContent = this.arraySize;
-        });
-    }
+    document.getElementById('randomArrayBtn').addEventListener('click', () => this.generateRandomArray());
+    document.getElementById('reversedArrayBtn').addEventListener('click', () => this.generateReversedArray());
+    document.getElementById('nearlySortedBtn').addEventListener('click', () => this.generateNearlySortedArray());
+    
+    const sizeSlider = document.getElementById('sizeSlider');
+    const sizeLabel = document.getElementById('sizeLabel');
+    
+    // Update BOTH the label AND regenerate array on change
+    sizeSlider.addEventListener('input', (e) => {
+        this.arraySize = parseInt(e.target.value);
+        sizeLabel.textContent = this.arraySize;
+    });
+    
+    // Regenerate array when slider is released
+    sizeSlider.addEventListener('change', (e) => {
+        this.arraySize = parseInt(e.target.value);
+        this.generateRandomArray();
+    });
+}
     
     generateRandomArray() {
         this.currentArray = Array.from({ length: this.arraySize }, () => Math.floor(Math.random() * 100) + 1);
