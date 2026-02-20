@@ -439,7 +439,7 @@ MIT License - see LICENSE file for details
 
 For questions or feedback:
 
-- Deeksha Manjunatha Bankapur - [GitHub](https://github.com/deekshabankapur)
+- Deeksha Manjunatha Bankapur - [GitHub](https://github.com/deeksha26052003)
 - Shriya Yarrapureddy Sarath - [GitHub](https://github.com/shriyays)
 
 ---
