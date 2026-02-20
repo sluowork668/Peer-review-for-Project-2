@@ -49,23 +49,17 @@ class VisualizerApp {
     
     displayPseudocode() {
         const pseudocodeDisplay = document.getElementById('pseudocodeDisplay');
-        
-        // Split pseudocode into lines and wrap each in a span
         const lines = this.algorithm.pseudocode.split('\n');
         const numberedLines = lines.map((line, index) => {
             return `<span class="code-line" data-line="${index}">${this.escapeHtml(line)}</span>`;
         }).join('\n');
-        
         pseudocodeDisplay.innerHTML = `<code>${numberedLines}</code>`;
     }
 
     highlightPseudocodeLine(lineNumber) {
-        // Remove previous highlights
         document.querySelectorAll('.code-line').forEach(line => {
             line.classList.remove('highlight');
         });
-        
-        // Highlight current line
         if (lineNumber >= 0) {
             const line = document.querySelector(`.code-line[data-line="${lineNumber}"]`);
             if (line) {
@@ -78,36 +72,30 @@ class VisualizerApp {
     displayComplexity() {
         const timeComplexity = this.algorithm.timeComplexity;
         const timeList = document.getElementById('timeComplexityList');
-        
         timeList.innerHTML = `
             <li><strong>Best:</strong> ${timeComplexity.best}</li>
             <li><strong>Average:</strong> ${timeComplexity.average}</li>
             <li><strong>Worst:</strong> ${timeComplexity.worst}</li>
         `;
-        
         document.getElementById('spaceComplexity').textContent = this.algorithm.spaceComplexity;
     }
     
     setupArrayControls() {
-    document.getElementById('randomArrayBtn').addEventListener('click', () => this.generateRandomArray());
-    document.getElementById('reversedArrayBtn').addEventListener('click', () => this.generateReversedArray());
-    document.getElementById('nearlySortedBtn').addEventListener('click', () => this.generateNearlySortedArray());
-    
-    const sizeSlider = document.getElementById('sizeSlider');
-    const sizeLabel = document.getElementById('sizeLabel');
-    
-    // Update BOTH the label AND regenerate array on change
-    sizeSlider.addEventListener('input', (e) => {
-        this.arraySize = parseInt(e.target.value);
-        sizeLabel.textContent = this.arraySize;
-    });
-    
-    // Regenerate array when slider is released
-    sizeSlider.addEventListener('change', (e) => {
-        this.arraySize = parseInt(e.target.value);
-        this.generateRandomArray();
-    });
-}
+        document.getElementById('randomArrayBtn').addEventListener('click', () => this.generateRandomArray());
+        document.getElementById('reversedArrayBtn').addEventListener('click', () => this.generateReversedArray());
+        document.getElementById('nearlySortedBtn').addEventListener('click', () => this.generateNearlySortedArray());
+        
+        const sizeSlider = document.getElementById('sizeSlider');
+        const sizeLabel = document.getElementById('sizeLabel');
+        sizeSlider.addEventListener('input', (e) => {
+            this.arraySize = parseInt(e.target.value);
+            sizeLabel.textContent = this.arraySize;
+        });
+        sizeSlider.addEventListener('change', (e) => {
+            this.arraySize = parseInt(e.target.value);
+            this.generateRandomArray();
+        });
+    }
     
     generateRandomArray() {
         this.currentArray = Array.from({ length: this.arraySize }, () => Math.floor(Math.random() * 100) + 1);
@@ -154,7 +142,8 @@ class VisualizerApp {
         return div.innerHTML;
     }
 }
+export default VisualizerApp; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.visualizerApp = new VisualizerApp();  // Make it global so controls.js can access it
+    window.visualizerApp = new VisualizerApp();
 });

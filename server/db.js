@@ -25,18 +25,22 @@ async function connectDB() {
         // Don't exit - let server run anyway
     }
 }
-
 async function seedData() {
     try {
-        const algorithmsCollection = db.collection('algorithms');
-        const count = await algorithmsCollection.countDocuments();
+        if (!db) return;
         
-        if (count === 0) {
-            console.log('📦 Seeding algorithm data...');
-            const { algorithmData } = require('./data/algorithmData');
-            await algorithmsCollection.insertMany(algorithmData);
-            console.log('✅ Seeded 4 algorithms');
-        }
+        const algorithmsCollection = db.collection('algorithms');
+        
+        // FORCE DELETE OLD DATA
+        console.log('🗑️  Deleting old algorithm data...');
+        await algorithmsCollection.deleteMany({});
+        
+        // RESEED WITH NEW DATA
+        console.log('📦 Seeding fresh algorithm data...');
+        const { algorithmData } = require('./data/algorithmData');
+        await algorithmsCollection.insertMany(algorithmData);
+        console.log('✅ Seeded 4 algorithms with complete pseudocode');
+        
     } catch (error) {
         console.error('❌ Error seeding data:', error.message);
     }

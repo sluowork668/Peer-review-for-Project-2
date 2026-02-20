@@ -1,13 +1,5 @@
-const express = require('express');
-const { ObjectId } = require('mongodb');
-const { getDB } = require('../db');
-
-const router = express.Router();
-
-// Fallback data
-const fallbackData = [
+const algorithmData = [
     {
-        _id: '000000000000000000000001',
         name: "Bubble Sort",
         category: "sorting",
         difficulty: "easy",
@@ -20,12 +12,15 @@ const fallbackData = [
     }
   }
 }`,
-        timeComplexity: { best: "O(n)", average: "O(n²)", worst: "O(n²)" },
+        timeComplexity: {
+            best: "O(n)",
+            average: "O(n²)",
+            worst: "O(n²)"
+        },
         spaceComplexity: "O(1)",
-        description: "A simple sorting algorithm that repeatedly steps through the list."
+        description: "A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order."
     },
     {
-        _id: '000000000000000000000002',
         name: "Quick Sort",
         category: "sorting",
         difficulty: "medium",
@@ -49,12 +44,15 @@ function partition(arr, low, high) {
   swap(arr[i+1], arr[high])
   return i + 1
 }`,
-        timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n²)" },
+        timeComplexity: {
+            best: "O(n log n)",
+            average: "O(n log n)",
+            worst: "O(n²)"
+        },
         spaceComplexity: "O(log n)",
-        description: "An efficient divide-and-conquer algorithm."
+        description: "An efficient divide-and-conquer algorithm that selects a pivot element and partitions the array around it."
     },
     {
-        _id: '000000000000000000000003',
         name: "Merge Sort",
         category: "sorting",
         difficulty: "medium",
@@ -86,32 +84,41 @@ function merge(arr, left, mid, right) {
     k++
   }
   
-  // Copy remaining elements
+  // Copy remaining elements from left
   while (i < leftArr.length) {
     arr[k] = leftArr[i]
     i++
     k++
   }
   
+  // Copy remaining elements from right
   while (j < rightArr.length) {
     arr[k] = rightArr[j]
     j++
     k++
   }
 }`,
-        timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
+        timeComplexity: {
+            best: "O(n log n)",
+            average: "O(n log n)",
+            worst: "O(n log n)"
+        },
         spaceComplexity: "O(n)",
         description: "A stable divide-and-conquer algorithm that divides the array into halves, sorts them, and merges them back together."
     },
-        _id: '000000000000000000000004',
+    {
         name: "Heap Sort",
         category: "sorting",
         difficulty: "hard",
         pseudocode: `function heapSort(arr) {
   n = arr.length
+  
+  // Build max heap
   for (i = n/2 - 1; i >= 0; i--) {
     heapify(arr, n, i)
   }
+  
+  // Extract elements from heap
   for (i = n-1; i > 0; i--) {
     swap(arr[0], arr[i])
     heapify(arr, i, 0)
@@ -134,49 +141,14 @@ function heapify(arr, n, i) {
     heapify(arr, n, largest)
   }
 }`,
-        timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
+        timeComplexity: {
+            best: "O(n log n)",
+            average: "O(n log n)",
+            worst: "O(n log n)"
+        },
         spaceComplexity: "O(1)",
-        description: "Uses a binary heap data structure to sort."
+        description: "A comparison-based sorting algorithm that uses a binary heap data structure to sort elements efficiently."
     }
 ];
 
-// GET /api/algorithms - Get all algorithms
-router.get('/', async (req, res) => {
-    try {
-        const db = getDB();
-        const algorithms = await db.collection('algorithms').find({}).toArray();
-        res.json(algorithms);
-    } catch (error) {
-        console.error('❌ Error fetching algorithms:', error.message);
-        res.json(fallbackData);
-    }
-});
-
-// GET /api/algorithms/:id - Get single algorithm by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const db = getDB();
-        const algorithm = await db.collection('algorithms').findOne({ 
-            _id: new ObjectId(req.params.id) 
-        });
-        
-        if (!algorithm) {
-            return res.status(404).json({ error: 'Algorithm not found' });
-        }
-        
-        res.json(algorithm);
-    } catch (error) {
-        console.error('❌ Error fetching algorithm by ID:', error.message);
-        
-        // Return fallback data based on ID
-        const algo = fallbackData.find(a => a._id === req.params.id);
-        if (algo) {
-            return res.json(algo);
-        }
-        
-        // If ID doesn't match fallback, return first one
-        res.json(fallbackData[0]);
-    }
-});
-
-module.exports = router;
+module.exports = { algorithmData };

@@ -67,9 +67,13 @@ function partition(arr, low, high) {
 }
 
 function merge(arr, left, mid, right) {
+  // Create temp arrays
   leftArr = arr[left...mid]
   rightArr = arr[mid+1...right]
+  
   i = 0, j = 0, k = left
+  
+  // Merge temp arrays back
   while (i < leftArr.length && j < rightArr.length) {
     if (leftArr[i] <= rightArr[j]) {
       arr[k] = leftArr[i]
@@ -80,11 +84,15 @@ function merge(arr, left, mid, right) {
     }
     k++
   }
+  
+  // Copy remaining elements from left
   while (i < leftArr.length) {
     arr[k] = leftArr[i]
     i++
     k++
   }
+  
+  // Copy remaining elements from right
   while (j < rightArr.length) {
     arr[k] = rightArr[j]
     j++
@@ -93,7 +101,7 @@ function merge(arr, left, mid, right) {
 }`,
         timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
         spaceComplexity: "O(n)",
-        description: "A stable divide-and-conquer algorithm."
+        description: "A stable divide-and-conquer algorithm that divides the array into halves, sorts them, and merges them back together."
     },
     {
         _id: '000000000000000000000004',
@@ -102,9 +110,13 @@ function merge(arr, left, mid, right) {
         difficulty: "hard",
         pseudocode: `function heapSort(arr) {
   n = arr.length
+  
+  // Build max heap
   for (i = n/2 - 1; i >= 0; i--) {
     heapify(arr, n, i)
   }
+  
+  // Extract elements from heap
   for (i = n-1; i > 0; i--) {
     swap(arr[0], arr[i])
     heapify(arr, i, 0)
@@ -115,6 +127,7 @@ function heapify(arr, n, i) {
   largest = i
   left = 2*i + 1
   right = 2*i + 2
+  
   if (left < n && arr[left] > arr[largest]) {
     largest = left
   }
@@ -128,7 +141,7 @@ function heapify(arr, n, i) {
 }`,
         timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
         spaceComplexity: "O(1)",
-        description: "Uses a binary heap data structure."
+        description: "A comparison-based sorting algorithm that uses a binary heap data structure to sort elements efficiently."
     }
 ];
 
