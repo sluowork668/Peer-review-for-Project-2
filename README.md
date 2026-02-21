@@ -6,12 +6,6 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-success.svg)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-green.svg)](https://www.mongodb.com/)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Tech-JavaScript-yellow" />
-  <img src="https://img.shields.io/badge/Canvas-API-blue" />
-  <img src="https://img.shields.io/badge/Express-4.18-lightgrey" />
-</p>
-
 ---
 
 ## 👥 Team Members
@@ -21,18 +15,103 @@
 
 ---
 
-## 🌟 About AlgoLearn
+## 🏫 Course Information
 
-AlgoLearn is an **interactive educational platform** that helps computer science students master sorting algorithms through real-time visualizations and gamified learning. Unlike passive textbook diagrams or simple visualizers, AlgoLearn combines:
+**Course:** CS5610 Web Development  
+**Semester:** Spring 2026  
+**Institution:** Northeastern University
 
-✨ **Visual Learning** - Watch algorithms sort arrays with smooth Canvas animations  
-🎮 **Interactive Controls** - Play, pause, step through, and adjust speed at your own pace  
-📝 **Active Testing** - Take quizzes to validate understanding  
-🏆 **Gamification** - Track progress, earn achievements, and compete on leaderboards
+---
 
-### Why AlgoLearn?
+## 🌟 Project Objective
 
-Students don't just _watch_ algorithms—they **interact**, **test**, and **master** them. By connecting visual animations to code logic and immediate feedback, AlgoLearn helps internalize algorithm behavior rather than just memorizing steps.
+AlgoLearn is an **interactive educational platform** designed to help computer science students master sorting algorithms through real-time visualizations and gamified learning. Unlike passive textbook diagrams or simple visualizers, AlgoLearn combines visual learning with active testing to help students internalize algorithm behavior rather than just memorizing steps.
+
+### Key Goals
+
+- ✨ Provide interactive Canvas-based algorithm visualizations
+- 🎮 Enable self-paced learning through playback controls
+- 📝 Test understanding through quizzes and challenges
+- 🏆 Motivate learning through gamification and progress tracking
+
+---
+
+## 📸 Screenshots
+
+### Landing Page
+
+![Landing Page](screenshots/landing.png)
+_Browse algorithms by difficulty with a beautiful dark theme and pink accents_
+
+### Algorithm Visualizer
+
+![Visualizer](screenshots/visualizer.png)
+_Interactive canvas animations with playback controls, color legend, and real-time metrics_
+
+### Progress Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+_Track your learning progress, quiz scores, streaks, and achievements_
+
+---
+
+## 🔨 How to Build & Run
+
+### Prerequisites
+
+- Node.js v18 or higher
+- MongoDB (optional - works with fallback data)
+- npm
+
+### Installation Steps
+
+1. **Clone the repository**
+
+```bash
+   git clone https://github.com/shriyays/AlgoLearn.git
+   cd AlgoLearn
+```
+
+2. **Install dependencies**
+
+```bash
+   npm install
+```
+
+3. **Set up environment (optional)**
+
+   Create a `.env` file in the root directory:
+
+```
+   MONGODB_URI=mongodb://localhost:27017/algolearn
+   PORT=3000
+```
+
+4. **Start MongoDB (optional - if using local database)**
+
+```bash
+   brew services start mongodb-community
+```
+
+5. **Start the server**
+
+```bash
+   npm start
+```
+
+6. **Open in browser**
+
+   Navigate to: `http://localhost:3000/index.html`
+
+### Quick Start (Without MongoDB)
+
+The application works with fallback data even if MongoDB isn't configured!
+
+```bash
+npm install
+npm start
+# Open http://localhost:3000/index.html
+```
 
 ---
 
@@ -48,7 +127,7 @@ _"I'm preparing for technical interviews and need to discover which algorithms I
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
 ### 🎨 Visualization Engine (by Deeksha)
 
@@ -83,8 +162,8 @@ _"I'm preparing for technical interviews and need to discover which algorithms I
 
 #### Code Integration
 
-- 📝 **Pseudocode Display** - See algorithm logic
-- 💡 **Line Highlighting** - Current executing line highlighted
+- 📝 **Pseudocode Display** - See complete algorithm logic
+- 💡 **Line Highlighting** - Current executing line highlighted (in progress)
 - 📊 **Real-time Metrics** - Comparisons, swaps, time elapsed
 
 ---
@@ -124,7 +203,6 @@ _"I'm preparing for technical interviews and need to discover which algorithms I
   - Algorithms mastered
   - Average quiz scores
   - Total learning time
-- See your ranking and compete!
 
 ---
 
@@ -134,7 +212,7 @@ _"I'm preparing for technical interviews and need to discover which algorithms I
 
 - **Vanilla JavaScript (ES6)** - No frameworks, pure JS
 - **HTML5 Canvas API** - Smooth 60fps animations
-- **CSS3** - Modern styling with dark theme
+- **CSS3** - Modern dark theme with pink accents
 - **ES6 Modules** - Clean, modular code
 
 ### Backend
@@ -147,52 +225,7 @@ _"I'm preparing for technical interviews and need to discover which algorithms I
 ### Database
 
 - **MongoDB** - NoSQL document database
-- **4 Collections**: algorithms, user_progress, quiz_results, achievements
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/shriyays/AlgoLearn.git
-cd AlgoLearn
-
-# 2. Install dependencies
-npm install
-
-# 3. Set up environment variables (optional)
-# Create .env file with:
-# MONGODB_URI=mongodb://localhost:27017/algolearn
-# PORT=3000
-
-# 4. Start MongoDB (if using local)
-brew services start mongodb-community
-
-# 5. Start the server
-npm start
-
-# 6. Open your browser
-# Navigate to: http://localhost:3000/index.html
-```
-
-### Quick Start (Without MongoDB)
-
-The app works with fallback data if MongoDB isn't configured!
-
-```bash
-npm install
-npm start
-# Open http://localhost:3000/index.html
-```
+- **Collections**: algorithms, user_progress, quiz_results, achievements
 
 ---
 
@@ -200,210 +233,108 @@ npm start
 
 ```
 AlgoLearn/
-├── public/                  # Frontend files
-│   ├── index.html          # Landing page with algorithm grid
-│   ├── visualizer.html     # Main visualization page
-│   ├── dashboard.html      # Progress dashboard (Shriya)
-│   ├── quiz.html          # Quiz page (Shriya)
-│   ├── leaderboard.html   # Leaderboard (Shriya)
-│   ├── css/
-│   │   ├── main.css       # Global styles (dark theme + pink)
-│   │   ├── visualizer.css # Visualizer page styles
-│   │   ├── dashboard.css  # Dashboard styles (Shriya)
-│   │   └── quiz.css       # Quiz styles (Shriya)
-│   └── js/
-│       ├── algorithms.js   # Algorithm implementations (Deeksha)
-│       ├── canvas.js       # Canvas rendering engine (Deeksha)
-│       ├── controls.js     # Playback controls (Deeksha)
-│       ├── visualizer.js   # Visualizer controller (Deeksha)
-│       ├── api.js          # API wrapper (Both)
-│       ├── dashboard.js    # Dashboard logic (Shriya)
-│       ├── quiz.js         # Quiz system (Shriya)
-│       ├── leaderboard.js  # Leaderboard (Shriya)
-│       └── achievements.js # Achievement system (Shriya)
-├── server/
-│   ├── server.js          # Express app setup
-│   ├── db.js              # MongoDB connection
-│   ├── routes/
-│   │   ├── algorithms.js   # Algorithm routes (Deeksha)
-│   │   ├── quizzes.js      # Quiz routes (Shriya)
-│   │   ├── progress.js     # Progress routes (Shriya)
-│   │   ├── achievements.js # Achievement routes (Shriya)
-│   │   └── leaderboard.js  # Leaderboard routes (Shriya)
-│   └── data/
-│       └── algorithmData.js # Seed data (Deeksha)
+├── public/                 # Frontend
+│   ├── *.html             # Pages
+│   ├── css/               # Stylesheets
+│   └── js/                # JavaScript modules
+├── server/                 # Backend
+│   ├── routes/            # API endpoints
+│   ├── data/              # Seed data
+│   ├── server.js          # Express app
+│   └── db.js              # Database connection
+├── screenshots/           # Project screenshots
 ├── package.json
-├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 🎨 Features Breakdown
+## 🔌 API Documentation
 
-### Deeksha's Contributions
-
-- ✅ Algorithm library page with difficulty badges
-- ✅ Canvas-based bar chart visualization
-- ✅ Smooth animations with color transitions
-- ✅ Playback controls (play, pause, step, speed)
-- ✅ Array generation (random, reversed, nearly-sorted)
-- ✅ Real-time metrics (comparisons, swaps, time)
-- ✅ Pseudocode display with syntax highlighting
-- ✅ Complexity analysis panel
-- ✅ 4 complete algorithm implementations
-- ✅ Backend API routes for algorithms
-
-### Shriya's Contributions
-
-- ✅ Interactive quiz system with 5 questions per algorithm
-- ✅ Progress dashboard with statistics
-- ✅ Learning streak tracker with calendar view
-- ✅ Achievement system with 4+ achievement types
-- ✅ Leaderboard with rankings
-- ✅ User progress tracking
-- ✅ Quiz result storage and analytics
-- ✅ Backend API routes for all user data
-
----
-
-## 🎮 How to Use
-
-### 1. Explore Algorithms
-
-Visit the landing page and browse 4 sorting algorithms categorized by difficulty.
-
-### 2. Visualize & Learn
-
-- Click "Visualize" on any algorithm
-- Watch the animation with color-coded bars
-- Use playback controls to go at your own pace
-- Follow along with pseudocode on the right
-- View complexity analysis
-
-### 3. Take Quizzes
-
-- Complete the visualization
-- Take a 5-question quiz
-- Get immediate feedback
-- See your score
-
-### 4. Track Progress
-
-- Visit the Dashboard to see:
-  - Algorithms completed
-  - Quiz scores
-  - Time spent learning
-  - Current streak
-
-### 5. Compete & Achieve
-
-- Check the Leaderboard
-- Earn achievements
-- Maintain learning streaks
-
----
-
-## 🎨 Design Highlights
-
-- 🌙 **Dark Theme** - Easy on the eyes with VS Code-inspired colors
-- 💖 **Pink Accent Color** - Modern, vibrant pink/purple gradients
-- 🎯 **Responsive Design** - Works on desktop and tablet
-- ✨ **Smooth Animations** - 60fps Canvas rendering
-- 🎨 **Color Legend** - Clear visual feedback during sorting
-
----
-
-## 🔌 API Endpoints
-
-### Algorithms (Deeksha)
+### Algorithms Endpoints (Deeksha)
 
 - `GET /api/algorithms` - List all algorithms
-- `GET /api/algorithms/:id` - Get algorithm details
+- `GET /api/algorithms/:id` - Get algorithm details with pseudocode
 
-### Quizzes (Shriya)
+### Quiz Endpoints (Shriya)
 
 - `POST /api/quiz-results` - Save quiz results
 - `GET /api/quiz-results/:userId` - Get user's quiz history
 
-### Progress (Shriya)
+### Progress Endpoints (Shriya)
 
 - `POST /api/progress` - Update user progress
-- `GET /api/progress/:userId` - Get user progress
+- `GET /api/progress/:userId` - Get user progress data
 
-### Achievements (Shriya)
+### Achievement Endpoints (Shriya)
 
 - `POST /api/achievements` - Award achievement
 - `GET /api/achievements/:userId` - Get user achievements
 
-### Leaderboard (Shriya)
+### Leaderboard Endpoint (Shriya)
 
 - `GET /api/leaderboard` - Get top learners
 
 ---
 
-## 🧪 Testing
-
-### Deeksha's Testing Checklist
-
-- ✅ Algorithm cards load with correct difficulty badges
-- ✅ Canvas animation runs smoothly
-- ✅ All playback controls work (play, pause, step, speed, reset)
-- ✅ Step backward functionality works
-- ✅ Pseudocode displays correctly
-- ✅ Metrics update in real-time
-- ✅ All 4 algorithms animate correctly
-- ✅ Array generation options work
-
-### Shriya's Testing Checklist
-
-- ✅ Quiz appears after visualization
-- ✅ All 5 questions display correctly
-- ✅ Answer submission works
-- ✅ Immediate feedback shows
-- ✅ Quiz results save to database
-- ✅ Dashboard shows accurate progress
-- ✅ Achievements unlock correctly
-- ✅ Leaderboard displays top users
-
----
-
 ## 🎓 Algorithms Included
 
-1. **Bubble Sort** (Easy)
-   - Time: O(n²) average, O(n) best
-   - Space: O(1)
-
-2. **Quick Sort** (Medium)
-   - Time: O(n log n) average, O(n²) worst
-   - Space: O(log n)
-
-3. **Merge Sort** (Medium)
-   - Time: O(n log n) all cases
-   - Space: O(n)
-
-4. **Heap Sort** (Hard)
-   - Time: O(n log n) all cases
-   - Space: O(1)
+| Algorithm   | Difficulty | Time Complexity | Space Complexity |
+| ----------- | ---------- | --------------- | ---------------- |
+| Bubble Sort | Easy       | O(n²) avg       | O(1)             |
+| Quick Sort  | Medium     | O(n log n) avg  | O(log n)         |
+| Merge Sort  | Medium     | O(n log n)      | O(n)             |
+| Heap Sort   | Hard       | O(n log n)      | O(1)             |
 
 ---
 
-## 🤝 Contributing
+## 🧪 Testing
 
-This is a student project for educational purposes.
+### Deeksha's Visualization Tests
 
-### Development Workflow
+- ✅ Algorithm cards load with correct badges
+- ✅ Canvas animation runs at 60fps
+- ✅ All playback controls function correctly
+- ✅ Step backward/forward works
+- ✅ Pseudocode displays with all functions
+- ✅ Real-time metrics update
+- ✅ All 4 algorithms visualize correctly
+
+### Shriya's Feature Tests
+
+- ✅ Quiz system works end-to-end
+- ✅ Progress tracking updates correctly
+- ✅ Achievements unlock at milestones
+- ✅ Leaderboard displays rankings
+- ✅ Streak counter increments daily
+
+---
+
+## 🎨 Design System
+
+- **Primary Color:** Pink (#ff79c6)
+- **Background:** Dark (#1e1e1e)
+- **Font:** Consolas, Monaco, Courier New (monospace)
+- **Animations:** CSS transitions + Canvas rendering
+
+---
+
+## 🤝 Development
+
+### Code Quality
+
+- ✅ Formatted with Prettier
+- ✅ Linted with ESLint
+- ✅ No exposed credentials
+- ✅ Clean, modular structure
+
+### Git Workflow
 
 ```bash
-# Pull latest changes
-git pull origin main
-
-# Make your changes
-# ...
-
-# Commit and push
+git pull origin main        # Pull latest
+# Make changes...
 git add .
-git commit -m "Your message"
+git commit -m "Message"
 git push origin main
 ```
 
@@ -411,38 +342,27 @@ git push origin main
 
 ## 📝 License
 
-MIT License - see LICENSE file for details
-
----
-
-## 🎯 Future Enhancements
-
-- [ ] User authentication system
-- [ ] More algorithm categories (searching, graph algorithms)
-- [ ] Social features (share progress, challenge friends)
-- [ ] Mobile responsive design
-- [ ] Dark/light theme toggle
-- [ ] Code export functionality
-- [ ] Multi-language support
+MIT License - See LICENSE file for details
 
 ---
 
 ## Acknowledgments
 
-- Built as a coursework project at Northeastern University
-- Inspired by the need for better algorithm education tools
-- Special thanks to our CS professors for guidance
+- Northeastern University CS Department
+- Inspiration from visualgo.net and algorithm-visualizer.org
+- Built with dedication by Deeksha & Shriya
 
 ---
 
 ## 📧 Contact
 
-For questions or feedback:
+**Deeksha Manjunatha Bankapur**  
+GitHub: [@deeksha26052003](https://github.com/deeksha26052003)
 
-- Deeksha Manjunatha Bankapur - [GitHub](https://github.com/deeksha26052003)
-- Shriya Yarrapureddy Sarath - [GitHub](https://github.com/shriyays)
+**Shriya Yarrapureddy Sarath**  
+GitHub: [@shriyays](https://github.com/shriyays)
 
 ---
 
 <p align="center">Made with 💕 by Deeksha & Shriya</p>
-<p align="center">© 2026 AlgoLearn - All Rights Reserved</p>
+<p align="center">© 2026 AlgoLearn - Learn Algorithms Visually</p>
