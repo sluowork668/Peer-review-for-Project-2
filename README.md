@@ -4,7 +4,7 @@
  
  #Link to Design Document : https://github.com/shriyays/AlgoLearn/blob/main/Design%20Document.pdf
 
- #Link to Slides : 
+ #Link to Slides : https://docs.google.com/presentation/d/1QPiiQQzvWBzS97DM_H4YziBcjo0NoTn5ZnHtsqQfyxo/edit?usp=sharing
 
  #Link to Youtube video : https://youtu.be/Ocpg4S7hQE0?si=ipJ9ByeALM7zF26D
 
