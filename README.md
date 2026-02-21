@@ -1,7 +1,12 @@
 # 🎓 AlgoLearn
 
  #Link to the website : https://algolearn-he4m.onrender.com
- #Link to Design Document : 
+ 
+ #Link to Design Document : https://github.com/shriyays/AlgoLearn/blob/main/Design%20Document.pdf
+
+ #Link to Slides : 
+
+ # Link to Youtube video : 
 
 > **Master Algorithms Through Visualization, Not Memorization**
 
