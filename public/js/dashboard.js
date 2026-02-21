@@ -64,8 +64,11 @@ class Dashboard {
       this.achievements = await achievementsResponse.json();
       
       // Load streak data (from localStorage for now)
-      this.streakData = JSON.parse(localStorage.getItem('streakData') || '{"days": [], "currentStreak": 0}');
+      // this.streakData = JSON.parse(localStorage.getItem('streakData') || '{"days": [], "currentStreak": 0}');
+      const streakKey = `streakData_${this.userId}`;
+this.streakData = JSON.parse(localStorage.getItem(streakKey) || '{"days": [], "currentStreak": 0}');
       this.updateStreak();
+
       
     } catch (error) {
       console.error('Error loading dashboard data:', error);
@@ -111,8 +114,10 @@ class Dashboard {
       }
       
       this.streakData.currentStreak = streak;
-      localStorage.setItem('streakData', JSON.stringify(this.streakData));
-      
+      // localStorage.setItem('streakData', JSON.stringify(this.streakData));
+      const streakKey = `streakData_${this.userId}`;
+      localStorage.setItem(streakKey, JSON.stringify(this.streakData));
+
       // Check for Week Warrior achievement
       if (streak >= 7) {
         this.unlockAchievement('week_warrior');

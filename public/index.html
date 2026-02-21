@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    
     <title>AlgoLearn - Master Algorithms Visually</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -20,11 +27,25 @@
     </header>
 
     <main class="container">
+        <!-- <section class="hero">
+            <h2>Learn Sorting Algorithms Interactively ✨</h2>
+            <p>Watch, step through, and master classic algorithms with real-time visualizations</p>
+        </section> -->
+
         <section class="hero">
             <h2>Learn Sorting Algorithms Interactively ✨</h2>
             <p>Watch, step through, and master classic algorithms with real-time visualizations</p>
+            
+            <div class="username-section">
+                <label class="username-label">Enter your name to get started:</label>
+                <input 
+                    type="text" 
+                    id="username-input" 
+                    placeholder="e.g., Shriya, Max, Mike"
+                >
+                <p id="username-message"></p>
+            </div>
         </section>
-
         <section class="algorithm-grid" id="algorithmGrid">
             <div class="loading">Loading algorithms...</div>
         </section>
