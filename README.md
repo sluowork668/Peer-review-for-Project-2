@@ -1,6 +1,7 @@
 # 🎓 AlgoLearn
 
- #Link to the website - https://algolearn-he4m.onrender.com/
+ #Link to the website : https://algolearn-he4m.onrender.com
+ #Link to Design Document : 
 
 > **Master Algorithms Through Visualization, Not Memorization**
 
