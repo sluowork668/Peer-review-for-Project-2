@@ -1,10 +1,10 @@
 //Author @shriyays
 
 // server/routes/leaderboard.js - Leaderboard Routes (SHRIYA)
-const express = require('express');
-const { getDB } = require('../db');
+import { Router } from 'express';
+import { getDB } from '../db';
 
-const router = express.Router();
+const router = Router();
 
 // GET /api/leaderboard - Get top learners
 router.get('/', async (req, res) => {
@@ -153,4 +153,4 @@ router.get('/:userId/rank', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

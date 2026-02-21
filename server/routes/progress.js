@@ -1,9 +1,9 @@
 //Author @shriyays
 
 // server/routes/progress.js - Progress Routes (SHRIYA)
-const express = require('express');
-const { ObjectId } = require('mongodb');
-const { getDB } = require('../db');
+import express from 'express';
+import { ObjectId } from 'mongodb';
+import { getDB } from '../db';
 
 const router = express.Router();
 
@@ -97,4 +97,4 @@ router.delete('/:userId/:algorithmName', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

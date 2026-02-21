@@ -232,7 +232,7 @@ class QuizPage {
     
     // Radio button change listeners for visual feedback
     document.querySelectorAll('.option-label').forEach(label => {
-      label.addEventListener('click', (e) => {
+      label.addEventListener('click', () => {
         const questionIndex = label.dataset.question;
         // Remove selected class from all options in this question
         document.querySelectorAll(`.option-label[data-question="${questionIndex}"]`).forEach(l => {

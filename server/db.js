@@ -1,9 +1,9 @@
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb'; 
 
 let db;
 let client;
 
-const MONGODB_URI = process.env.MONGODB_URI //|| 'mongodb://127.0.0.1:27017/algolearn';
+const MONGODB_URI = MongoClient.process.env.MONGODB_URI //|| 'mongodb://127.0.0.1:27017/algolearn';
 
 async function connectDB() {
     try {
@@ -37,7 +37,7 @@ async function seedData() {
         
         // RESEED WITH NEW DATA
         console.log('📦 Seeding fresh algorithm data...');
-        const { algorithmData } = require('./data/algorithmData');
+        const { algorithmData } = import('./data/algorithmData');
         await algorithmsCollection.insertMany(algorithmData);
         console.log('✅ Seeded 4 algorithms with complete pseudocode');
         
@@ -53,4 +53,4 @@ function getDB() {
     return db;
 }
 
-module.exports = { connectDB, getDB };
+export default { connectDB, getDB };

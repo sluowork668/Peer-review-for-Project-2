@@ -1,20 +1,21 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const express = require('express');
-const cors = require('cors');
-const { connectDB } = require('./db');
+import express from 'express';
+import cors from 'cors';
+import { connectDB } from './db';
 
 // Import all route files
-const algorithmsRouter = require('./routes/algorithms');
-const quizzesRouter = require('./routes/quizzes');
-const progressRouter = require('./routes/progress');
-const achievementsRouter = require('./routes/achievements');
-const leaderboardRouter = require('./routes/leaderboard');
+import algorithmsRouter from './routes/algorithms';
+import quizzesRouter from './routes/quizzes';
+import progressRouter from './routes/progress';
+import achievementsRouter from './routes/achievements';
+import leaderboardRouter from './routes/leaderboard';
 
 console.log('🎀 Starting AlgoLearn server...');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = express.process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());

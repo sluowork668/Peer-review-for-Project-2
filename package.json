@@ -1,11 +1,13 @@
 {
   "name": "algolearn",
   "version": "1.0.0",
+  "type": "module",
   "description": "Algorithm visualization platform",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "dev": "nodemon server/server.js",
+    "lint": "eslint public/js/**/*.js server/**/*.js"
   },
   "keywords": [
     "algorithms",
@@ -21,6 +23,9 @@
     "mongodb": "^6.21.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.3",
+    "eslint": "^9.39.3",
+    "globals": "^17.3.0",
     "nodemon": "^3.0.2"
   }
 }

@@ -1,8 +1,8 @@
 //Author @shriyays
 // server/routes/quizzes.js - Quiz Routes (SHRIYA)
-const express = require('express');
-const { ObjectId } = require('mongodb');
-const { getDB } = require('../db');
+import express from 'express';
+import { ObjectId } from 'mongodb';
+import { getDB } from '../db';
 
 const router = express.Router();
 
@@ -77,4 +77,4 @@ router.get('/:userId/:algorithmName', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

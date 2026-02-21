@@ -1,11 +1,11 @@
 //Author @shriyays
 
 // server/routes/achievements.js - Achievements Routes (SHRIYA)
-const express = require('express');
-const { ObjectId } = require('mongodb');
-const { getDB } = require('../db');
+import { Router } from 'express';
+import { ObjectId } from 'mongodb';
+import { getDB } from '../db';
 
-const router = express.Router();
+const router = Router();
 
 const achievementTypes = {
     sorting_master: {
@@ -141,4 +141,4 @@ router.get('/types/all', (req, res) => {
     res.json(achievementTypes);
 });
 
-module.exports = router;
+export default router;

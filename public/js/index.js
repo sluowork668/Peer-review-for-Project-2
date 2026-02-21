@@ -92,6 +92,7 @@ async function loadAlgorithms() {
             </div>
         `).join('');
     } catch (error) {
+        console.error('Failed to load algorithms:', error);
         grid.innerHTML = '<div class="error">Failed to load algorithms 💔</div>';
     }
 }

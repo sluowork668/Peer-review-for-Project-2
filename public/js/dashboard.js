@@ -127,7 +127,7 @@ this.streakData = JSON.parse(localStorage.getItem(streakKey) || '{"days": [], "c
 
   renderStats() {
     // Calculate overall stats
-    const completed = this.progress.filter(p => p.completed).length;
+    //const completed = this.progress.filter(p => p.completed).length;
     const mastered = this.progress.filter(p => p.mastered).length;
     const totalQuizzes = this.quizResults.length;
     const avgScore = totalQuizzes > 0 

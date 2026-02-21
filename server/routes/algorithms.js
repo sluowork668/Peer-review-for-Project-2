@@ -1,6 +1,6 @@
-const express = require('express');
-const { ObjectId } = require('mongodb');
-const { getDB } = require('../db');
+import express from 'express';
+import { ObjectId } from 'mongodb';
+import { getDB } from '../db.js';
 
 const router = express.Router();
 
@@ -174,4 +174,4 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
