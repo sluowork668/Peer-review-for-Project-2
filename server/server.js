@@ -1,21 +1,23 @@
+import process from 'process';
 import dotenv from 'dotenv';
 dotenv.config();
 
+
 import express from 'express';
 import cors from 'cors';
-import { connectDB } from './db';
+import { connectDB } from './db.js';
 
 // Import all route files
-import algorithmsRouter from './routes/algorithms';
-import quizzesRouter from './routes/quizzes';
-import progressRouter from './routes/progress';
-import achievementsRouter from './routes/achievements';
-import leaderboardRouter from './routes/leaderboard';
+import algorithmsRouter from './routes/algorithms.js';
+import quizzesRouter from './routes/quizzes.js';
+import progressRouter from './routes/progress.js';
+import achievementsRouter from './routes/achievements.js';
+import leaderboardRouter from './routes/leaderboard.js';
 
 console.log('🎀 Starting AlgoLearn server...');
 
 const app = express();
-const PORT = express.process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -49,8 +51,8 @@ app.get('/api/health', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:3000`);
-    console.log(`💕 Frontend: http://localhost:3000/index.html`);
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`💕 Frontend: http://localhost:${PORT}/index.html`);
     console.log(`📊 Dashboard: http://localhost:${PORT}/dashboard.html`);
     console.log(`🏆 Leaderboard: http://localhost:${PORT}/leaderboard.html`);
     console.log(`🧪 Quiz Test: http://localhost:${PORT}/quiz.html?name=Bubble Sort`);

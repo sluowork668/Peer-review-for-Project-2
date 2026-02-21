@@ -2,7 +2,7 @@
 // server/routes/quizzes.js - Quiz Routes (SHRIYA)
 import express from 'express';
 import { ObjectId } from 'mongodb';
-import { getDB } from '../db';
+import { getDB } from '../db.js';
 
 const router = express.Router();
 

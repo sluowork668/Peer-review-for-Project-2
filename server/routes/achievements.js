@@ -3,7 +3,7 @@
 // server/routes/achievements.js - Achievements Routes (SHRIYA)
 import { Router } from 'express';
 import { ObjectId } from 'mongodb';
-import { getDB } from '../db';
+import { getDB } from '../db.js';
 
 const router = Router();
 

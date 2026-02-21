@@ -151,4 +151,4 @@ function heapify(arr, n, i) {
     }
 ];
 
-export default { algorithmData };
+export { algorithmData };
