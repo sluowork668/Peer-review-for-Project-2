@@ -3,19 +3,31 @@
 **Reviewer:** Shuwen Luo
 **Project:** AlgoLearn
 **Course:** CS5610 Web Development  
-**Semester:** Spring 2026  
+**Semester:** Spring 2026   
 
 ---
 
-## Overall Impression
+## Overall Impression  
 
-AlgoLearn is a strong and well-rounded full-stack project. It goes beyond being just an algorithm visualizer by integrating quizzes, progress tracking, achievements, and a leaderboard system. The application feels complete and cohesive, and the features connect well with the project’s educational goal.
+I think AlgoLearn is a strong and well-rounded full-stack project. It goes beyond being just an algorithm visualizer by integrating quizzes, progress tracking, achievements, and a leaderboard system. The application feels complete and cohesive, and the features connect well with the project’s educational goal.
 
 From both a frontend and backend perspective, the structure is clean and thoughtfully organized.
 
 ---
 
-## What Works Well
+## What Works Well  
+
+### UI / UX Design
+
+The visual design of the application is one of its strongest aspects. The dark theme combined with the pink and purple gradient accents creates a consistent and modern look across pages. The navigation bar is clean and intuitive, making it easy to switch between Algorithms, Dashboard, and Leaderboard.
+
+The Dashboard layout is especially well designed. The progress cards (Algorithms Completed, Average Quiz Score, Total Time Spent, Streak) present information clearly and make the data easy to interpret at a glance. The visual hierarchy and spacing feel intentional rather than cluttered.
+
+The Leaderboard page also has strong visual clarity. The rank badges and sorting dropdown improve usability, and the layout makes comparison between users straightforward.
+
+Overall, the UI feels polished, consistent, and user-friendly.
+
+---
 
 ### Frontend
 
@@ -33,7 +45,7 @@ The Canvas-based visualizer aligns very well with the project objective of helpi
 
 ---
 
-### Backend
+### Backend  
 
 The backend setup is solid and aligns with course requirements:
 
@@ -50,7 +62,7 @@ The database seeding logic also satisfies the requirement of having 1000+ record
 
 ---
 
-## Documentation & Code Quality
+## Documentation & Code Quality  
 
 The README is well written and professional. It includes:
 
@@ -65,7 +77,7 @@ Including ESLint, Prettier, and an MIT license also reflects good development pr
 
 ---
 
-## Minor Suggestions
+## Minor Suggestions  
 
 A few small refinements could further strengthen the project:
 
@@ -77,8 +89,8 @@ These are relatively minor improvements and do not impact the overall functional
 
 ---
 
-## Final Thoughts
+## Final Thoughts  
 
-Overall, this is a well-executed and technically solid full-stack application. The integration between visualization, quizzes, and progress tracking feels intentional and cohesive. The project clearly meets the assignment requirements and, in several areas, exceeds them.
+Overall, this is a well-executed and technically solid full-stack application. The integration between visualization, quizzes, progress tracking, and leaderboard functionality feels intentional and cohesive. The project clearly meets the assignment requirements and, in several areas, exceeds them.
 
 Great job building a complete and thoughtfully designed learning platform.
